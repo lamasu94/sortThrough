@@ -28,10 +28,12 @@ export default function LandingPage(){
                     <Link className="text-gray-500 hover:text-gray-700" href="/">Customers</Link>
                     <Link className="text-gray-500 hover:text-gray-700" href="/">Contact</Link>
                </div>
+               <Link href="/login">
                 <button className="bg-[#152533] text-[#CBDDE9] transition-all duration-300 hover:bg-gray-700  p-2 rounded-md flex flex-row gap-x-2 items-center">
                     <CiLogin /> 
                      Login to Dashboard
                 </button>
+                </Link>
             </div>
 
 
@@ -57,10 +59,12 @@ export default function LandingPage(){
                     </p>
                     </div>
                     <div className="flex flex-row gap-x-5 p-5 border-b border-gray-200 ">
+                    <Link href="/login">
                       <button className="bg-[#152533] text-[#CBDDE9] transition-all duration-300 hover:bg-gray-700  p-2 rounded-lg flex flex-row gap-x-2 items-center">
-                    <CiLogin /> 
-                     Login to Dashboard
-                     </button>
+                        <CiLogin /> 
+                        Login to Dashboard
+                        </button>
+                     </Link>
                      <button className="text-[#152533] p-3 rounded-lg border border-gray-300 transition-all duration-300 hover:text-[#2872A1] hover:border-[#2872A1]">
                         See Features
                      </button>
