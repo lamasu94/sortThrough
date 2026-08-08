@@ -19,7 +19,7 @@ export default function LandingPage(){
             {/*navbar */}
             <div className="flex flex-row justify-between p-3 border-b border-gray-300 bg-[#FAFBFC]">
                 <div className="flex flex-row gap-x-2 p-2 items-center">
-                    <LiaSortSolid  size={24} />
+                    <LiaSortSolid className="text-[#0F1923]"   size={24} />
                     <h2 className="text-lg font-semibold text-[#152533]">sortThrough</h2>
                 </div>
                 <div className="flex flex-row space-x-7 p-2 ">

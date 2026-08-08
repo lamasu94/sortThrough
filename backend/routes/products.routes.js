@@ -1,6 +1,6 @@
 const express = require ("express");
 const router = express.Router();
-const { createProduct, deleteProduct, updateProduct, viewAllProduct, viewOneProduct} = require ("../controllers/supplier.controller")
+const { createProduct, deleteProduct, updateProduct, viewAllProduct, viewOneProduct} = require ("../controllers/product.controller")
 const {verifyToken, checkRole } = require ("../middleware/auth.middleware")
 const upload = require("../middleware/uploadProducts.middleware");
 
@@ -10,3 +10,5 @@ router.delete("/:id", verifyToken, checkRole("admin"), deleteProduct)
 router.put("/:id", verifyToken, checkRole("admin"), upload.single("image"), updateProduct)
 router.get("/", verifyToken, viewAllProduct)
 router.get("/:id", verifyToken, viewOneProduct)
+
+module.exports = router;

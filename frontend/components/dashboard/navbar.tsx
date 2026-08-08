@@ -13,8 +13,8 @@ export default function Navbar() {
 
       <div className="flex flex-row gap-x-5 items-center">
         <div className="flex flex-row items-center bg-gray-300 gap-x-2 rounded-lg px-4 py-2 w-full max-w-md">
-          <CiSearch />
-          <input className="bg-transparent outline-none w-full text-sm" placeholder="Search for anything" />
+          <CiSearch className="text-black" />
+          <input className="bg-transparent outline-none w-full text-sm text-black" placeholder="Search for anything" />
         </div>
 
         <div className="bg-[#0F1923] rounded-full p-3 flex items-center justify-center">

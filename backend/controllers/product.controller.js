@@ -1,14 +1,14 @@
 const db = require ('../db.js');
 
 //create a product
-exports.createProduct = async (req,res0) =>{
+exports.createProduct = async (req,res) =>{
     try{
         const {name, categoryId, supplierId, buyingPrice, sellingPrice, quantity, description,  barcode } = req.body
-        const image = req.file ? req.file.filename : null;
         const [results] = await db.query("select * from products where barcode =?", [barcode])
         if( results.length >0 ){
              return res.status(409).json({error: "Product already exist"})
         }
+        const image = req.file ? req.file.filename : null;
         if( buyingPrice >sellingPrice){
             return res.status(400).json({error: "Selling Price must be greater than Buying Price"})
         }
@@ -46,12 +46,12 @@ exports.updateProduct = async (req,res) =>{
     try{
         const {id} = req.params
         const {name, categoryId, supplierId, buyingPrice, sellingPrice, quantity, description, barcode } = req.body
-        const image = req.file ? req.file.filename : results[0].image;
         const [results] = await db.query ("select * from products where id =?", [id])
         const [barcodeResults] = await db.query ("select * from products where barcode =? and id != ?", [barcode, id])
         if( results.length === 0){
             return res.status(404).json({error: "Products Not Found"})
         }
+        const image = req.file ? req.file.filename : results[0].image;
          if (barcodeResults.length > 0){
             return res.status(409).json({error: "Product with this barcode already exist"})
         }

@@ -1,4 +1,5 @@
-import { ArrowLeft, Sprout, CheckCircle2, Maximize2, Sparkles } from "lucide-react";
+import { ArrowLeft,  CheckCircle2, Maximize2, Sparkles } from "lucide-react";
+import { LiaSortSolid } from "react-icons/lia";
 import Link from "next/link";
 export default function LoginPage(){
     return(
@@ -14,7 +15,7 @@ export default function LoginPage(){
     {/* Left illustration panel */}
     <div className="relative bg-[#CBDDE9]/40 flex items-center justify-center p-10">
       <div className="absolute inset-0 bg-gradient-to-br from-[#CBDDE9]/60 to-transparent" />
-      <Sprout className="w-32 h-32 text-[#2872A1] relative z-10" strokeWidth={1} />
+      <LiaSortSolid className="w-32 h-32 text-[#0F1923] relative z-10" strokeWidth={1} />
     </div>
 
     {/* Right form panel */}
