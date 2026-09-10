@@ -29,7 +29,6 @@ export const adminNavItems: NavItem[] = [
   { label: "Customers", href: "/dashboard/customers", icon: Users },
   { label: "Employees", href: "/dashboard/employees", icon: UserCog },
   { label: "Sales", href: "/dashboard/sales", icon: ShoppingCart },
-  { label: "Finance", href: "/dashboard/finance", icon: Wallet },
   { label: "Reports", href: "/dashboard/reports", icon: FileText },
   { label: "Settings", href: "/dashboard/settings", icon: Settings },
 ];

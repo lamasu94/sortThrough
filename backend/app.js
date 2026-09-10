@@ -15,6 +15,7 @@ app.use("/api/customers", require("./routes/customers.routes") );
 app.use("/api/suppliers", require ("./routes/supplier.routes"));
 app.use("/api/transactions", require("./routes/transactions.routes"))
 app.use("/api/products",  require("./routes/products.routes"))
+app.use("/uploads", express.static("uploads")); 
 app.use("/api/sale", require("./routes/sale.routes"))
 app.use("/api/users", require("./routes/employee.routes"))
 app.use("/api/reports", require("./routes/report.routes"));

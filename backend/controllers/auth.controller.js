@@ -3,26 +3,42 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken")
 
 //login
-exports.login = async (req,res) =>{
-    try{
-        const {email, password} = req.body;
-        const [results] = await db.query("select * from users where email =?", [email])
-        if( results.length === 0){
-            return res.status(401).json({msg: "User not found"})
-        }
-        const passwordCompare = await bcrypt.compare(password, results[0].password)
-        if(!passwordCompare){
-            return res.status(401).json({msg: "Invalid Credentials"})
-        }
-        const token = jwt.sign({id:results[0].id, email: results[0].email, role:results[0].role},
-            process.env.JWT_SECRET, {expiresIn: "1h"}
-        )
-        return res.status(200).json({msg: "Login Successful", success:true, token})
+exports.login = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const [results] = await db.query("select * from users where email =?", [email]);
 
-    }catch(err){
-        return res.status(500).json({error: err.message})
+        if (results.length === 0) {
+            return res.status(401).json({ msg: "User not found" });
+        }
+
+        const passwordCompare = await bcrypt.compare(password, results[0].password);
+        if (!passwordCompare) {
+            return res.status(401).json({ msg: "Invalid Credentials" });
+        }
+
+        const token = jwt.sign(
+            { id: results[0].id, email: results[0].email, role: results[0].role },
+            process.env.JWT_SECRET,
+            { expiresIn: "1d" }
+        );
+
+        return res.status(200).json({
+            msg: "Login Successful",
+            success: true,
+            token,
+            user: {
+                id: results[0].id,
+                name: results[0].name,
+                email: results[0].email,
+                role: results[0].role,
+                avatar: results[0].avatar,
+            },
+        });
+    } catch (err) {
+        return res.status(500).json({ error: err.message });
     }
-}
+};
 
 //register
 exports.register = async (req,res)=>{
@@ -35,7 +51,7 @@ exports.register = async (req,res)=>{
         }
         const hashPassword = await bcrypt.hash(password, 10);
         const [sql] = await db.query("insert into users(name, email, password, role, avatar) values (?, ?, ?, ?,?)",
-             [name, email,hashPassword, role, avatar])
+             [name, email,hashPassword, role, image])
         return res.status(201).json({ success: true, userId: sql.insertId });
     }catch(err){
         return res.status(500).json({error: err.message})

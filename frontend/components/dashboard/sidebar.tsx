@@ -4,23 +4,22 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { navItemsByRole } from "@/lib/nav-config";
 import { LiaSortSolid } from "react-icons/lia";
-// TODO: import your real auth hook once context/AuthContext.tsx exists
-// import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/authContext";
 
 export default function Sidebar() {
-  const pathname = usePathname();
+    const pathname = usePathname();
+    const { user } = useAuth();
 
-  // TODO: replace with real logged-in user from AuthContext
-  // const { user } = useAuth();
-  // const items = navItemsByRole[user.role];
-  const items = navItemsByRole["admin"]; // placeholder until AuthContext is built
+    if (!user) return null; // nothing to show if not logged in
+
+    const items = navItemsByRole[user.role];
 
   return (
     <div className="flex flex-col bg-[#0F1923] space-y-4 w-60 min-h-screen">
       <div>
-        <div className="bg-[#0F1923]  flex flex-row gap-x-2 p-4 items-center border-b border-[#CBDDE9] ">
-          <LiaSortSolid className="text-[#CBDDE9]" size={24} />
-          <h2 className="text-lg font-semibold text-[#CBDDE9]">sortThrough</h2>
+        <div className="bg-[#CBDDE9]  flex flex-row gap-x-2 p-2 items-center justify-center">
+          <LiaSortSolid className="text-[#0F1923]" size={24} />
+          <h2 className="text-lg font-semibold text-[#0F1923]">sortThrough</h2>
         </div>
       </div>
       <div className="flex flex-col px-3 space-y-1">

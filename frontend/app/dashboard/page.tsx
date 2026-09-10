@@ -2,21 +2,24 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-// TODO: import your real auth hook once context/AuthContext.tsx exists
-// import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/context/authContext";
 
 export default function DashboardPage() {
-  const router = useRouter();
+    const router = useRouter();
+    const { user, isLoading } = useAuth();
 
-  // TODO: replace with real logged-in user from AuthContext
-  // const { user } = useAuth();
-  const user = { role: "admin" }; // placeholder until AuthContext is built
+    useEffect(() => {
+        if (isLoading) return; // wait until we know if there's a logged-in user
 
-  useEffect(() => {
-    if (user.role === "admin") router.replace("/dashboard/admin");
-    else if (user.role === "sales_officer") router.replace("/dashboard/sales");
-    else if (user.role === "finance_officer") router.replace("/dashboard/finance");
-  }, [user.role, router]);
+        if (!user) {
+            router.replace("/login");
+            return;
+        }
 
-  return null;
+        if (user.role === "admin") router.replace("/dashboard/admin");
+        else if (user.role === "sales_officer") router.replace("/dashboard/sales");
+        else if (user.role === "finance_officer") router.replace("/dashboard/finance");
+    }, [user, isLoading, router]);
+
+    return null;
 }
