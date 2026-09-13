@@ -21,6 +21,6 @@ export async function fetchTopProductsReport(limit?: number): Promise<TopProduct
 }
 
 export async function fetchIncomeVsExpense(startDate: string, endDate: string): Promise<IncomeExpenseRow[]> {
-    const response = await api.get("/reports/income-vs-expense", { params: { startDate, endDate } });
+    const response = await api.get("/reports/income-expense", { params: { startDate, endDate } });
     return response.data.report;
 }

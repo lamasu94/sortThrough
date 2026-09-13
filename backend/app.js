@@ -7,6 +7,10 @@ dotenv.config();
 const app = express();
 
 app.use(cors({origin: "http://localhost:3000"}));
+app.use((req, res, next) => {
+    res.set("Cache-Control", "no-store");
+    next();
+});
 
 app.use(express.json());
 app.use("/api/auth", require("./routes/auth.routes"));

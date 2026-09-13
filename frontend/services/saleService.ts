@@ -31,16 +31,16 @@ export type SaleFilters = {
 };
 
 export async function fetchSales(filters: SaleFilters = {}): Promise<Sale[]> {
-    const response = await api.get("/sales", { params: filters });
+    const response = await api.get("/sale", { params: filters });
     return response.data.sales;
 }
 
 export async function fetchSaleById(id: number): Promise<Sale> {
-    const response = await api.get(`/sales/${id}`);
+    const response = await api.get(`/sale/${id}`);
     return response.data.sale;
 }
 
 export async function createSale(data: SaleInput): Promise<{ id: number; totalAmount: number }> {
-    const response = await api.post("/sales", data);
+    const response = await api.post("/sale", data);
     return response.data.sale;
 }

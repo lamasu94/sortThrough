@@ -48,14 +48,14 @@ export default function LandingPage(){
                         Run your inventory,
                          sales, and finances 
                     </p>
-                    <span className="text-7xl text-[#2872A1]" >— in one place.</span>
+                    <span className="text-7xl text-[#2872A1]" > in one place.</span>
                     </div>
                     <div >
                     <p className="text-gray-500 p-5 font-serif">
                         sortThrough gives your team real-time visibility into stock levels, sales performance,
                         <br/>
                         and cash flow, with role-based dashboards so everyone sees exactly what they need
-                         — nothing more.
+                          nothing more.
                     </p>
                     </div>
                     <div className="flex flex-row gap-x-5 p-5 border-b border-gray-200 ">
@@ -182,7 +182,7 @@ export default function LandingPage(){
                     </div>
                     <div className=" text-gray-500">
                         <p>
-                            Most growing businesses juggle three disconnected tools — a spreadsheet for stock,a notebook for sales,
+                            Most growing businesses juggle three disconnected tools  a spreadsheet for stock,a notebook for sales,
                              and another system entirely for expenses.<br/>  Numbers drift out of sync. Nobody has the full picture.<br/>
                              <br/>
                             sortThrough replaces all three with a single platform where inventory,
@@ -241,7 +241,7 @@ export default function LandingPage(){
                     <div className="flex flex-col justify-between space-y-3">
                         <p className="font-semibold text-[#0F1923] text-xl font-serif">Monitor Finances</p>
                         <p className="text-[#4B535A]">
-                        Every sale becomes revenue automatically — log expenses and see real profit.
+                        Every sale becomes revenue automatically  log expenses and see real profit.
                         </p>
                     </div>
                     </div>
@@ -299,7 +299,7 @@ export default function LandingPage(){
                     </div>
                     <ul className="list-disc pl-6 marker:text-[#2872A1] space-y-2">
                     <li className="text-[#636A70]">Create sales with multiple products in one transaction</li>
-                    <li className="text-[#636A70]">Totals calculate automatically — no manual math</li>
+                    <li className="text-[#636A70]">Totals calculate automatically  no manual math</li>
                     <li className="text-[#636A70]">Stock deducts in real time as sales happen</li>
                     <li className="text-[#636A70]">Print or download receipts instantly (PDF)</li>
                     <li className="text-[#636A70]">Full sales history, searchable by customer or date</li>
@@ -322,7 +322,7 @@ export default function LandingPage(){
                     <ul className="list-disc pl-6 marker:text-[#2872A1] space-y-2">
                     <li className="text-[#636A70]">Every sale automatically becomes tracked revenue</li>
                     <li className="text-[#636A70]">Log business expenses by category</li>
-                    <li className="text-[#636A70]">See real net profit — not just gross sales</li>
+                    <li className="text-[#636A70]">See real net profit  not just gross sales</li>
                     <li className="text-[#636A70]">Daily, weekly, and monthly financial reports</li>
                     <li className="text-[#636A70]">Income vs expense trends over time</li>
                     </ul>

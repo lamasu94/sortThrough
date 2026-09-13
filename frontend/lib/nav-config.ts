@@ -42,6 +42,7 @@ export const salesNavItems: NavItem[] = [
   { label: "Sales History", href: "/dashboard/sales", icon: FileText },
   { label: "Customers", href: "/dashboard/customers", icon: Users },
   { label: "Products", href: "/dashboard/products", icon: Package },
+  { label: "Finance", href: "/dashboard/finance", icon: Truck },
   { label: "Suppliers", href: "/dashboard/suppliers", icon: Truck },
   { label: "Reports", href: "/dashboard/reports/sales", icon: FileText },
 ];
@@ -56,6 +57,7 @@ export const financeNavItems: NavItem[] = [
   { label: "Products", href: "/dashboard/products", icon: Package },
   { label: "Suppliers", href: "/dashboard/suppliers", icon: Truck },
   { label: "Reports", href: "/dashboard/reports/finance", icon: FileText },
+  { label: "Reports", href: "/dashboard/reports/sales", icon: FileText },
 ];
 
 // ── Lookup by role ─────────────────────────────────────

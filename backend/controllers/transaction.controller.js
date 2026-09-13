@@ -7,7 +7,7 @@ exports.createTransaction = async (req, res) => {
         if (!amount || amount <= 0){
             return res.status(400).json({error: "Amount must be greater than zero"})
         }
-        const [results] = await db.query("insert into transactions (type, amount, category, description, created_by) values (?, ?, ?, ?, ?)", ["expenses", amount, category, description, req.user.id])
+        const [results] = await db.query("insert into transactions (type, amount, category, description, created_by) values (?, ?, ?, ?, ?)", ["expense", amount, category, description, req.user.id])
         return res.status(201).json({success: true, message: " Transaction Created Successfully"})
     }catch(err) {
         return res.status(500).json({error: err.message})

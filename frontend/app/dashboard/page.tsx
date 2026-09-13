@@ -17,8 +17,8 @@ export default function DashboardPage() {
         }
 
         if (user.role === "admin") router.replace("/dashboard/admin");
-        else if (user.role === "sales_officer") router.replace("/dashboard/sales");
-        else if (user.role === "finance_officer") router.replace("/dashboard/finance");
+        else if (user.role === "sales_officer") router.replace("/dashboard/salesOfficer");
+        else if (user.role === "finance_officer") router.replace("/dashboard/financeOfficer");
     }, [user, isLoading, router]);
 
     return null;

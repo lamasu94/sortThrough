@@ -4,10 +4,8 @@ const { createSale, viewAllSales, viewOneSale } = require("../controllers/sale.c
 const { verifyToken, checkRole } = require("../middleware/auth.middleware");
 
 
-router.get("/", verifyToken, checkRole("admin", "sales_officer"), viewAllSales);
-router.get("/:id", verifyToken, checkRole("admin", "sales_officer"), viewOneSale);
-
-
-router.post("/", verifyToken, checkRole("sales_officer"), createSale);
+router.get("/", verifyToken, viewAllSales);
+router.get("/:id", verifyToken, viewOneSale);
+router.post("/", verifyToken, checkRole("sales_officer", "admin"), createSale);
 
 module.exports = router;

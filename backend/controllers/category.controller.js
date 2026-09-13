@@ -18,19 +18,21 @@ exports.createCategory = async (req, res) =>{
 
 //delete category
 
-exports.deleteCategory = async (req, res) =>{
-    try{
-        const {id}= req.params
-        const [results] = await db.query("select * from categories where name =?", [id])
-         if(results.length === 0){
-            return res.status(404).json({error: "Category doesn't exist"})
+exports.deleteCategory = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const [results] = await db.query("SELECT * FROM categories WHERE id = ?", [id]);
+
+        if (results.length === 0) {
+            return res.status(404).json({ error: "Category doesn't exist" });
         }
-        const [sql] = await db.query("delete from categories where name =? ", [name])
-        return res.status(200).json({success: true, message: "Category Deleted Successfully" })
-    }catch(err){
-         return res.status(500).json({error: err.message});
+
+        await db.query("DELETE FROM categories WHERE id = ?", [id]);
+        return res.status(200).json({ success: true, message: "Category deleted successfully" });
+    } catch (err) {
+        return res.status(500).json({ error: err.message });
     }
-}
+};
 
 //update category
 
