@@ -58,6 +58,7 @@ export const financeNavItems: NavItem[] = [
   { label: "Suppliers", href: "/dashboard/suppliers", icon: Truck },
   { label: "Reports", href: "/dashboard/reports/finance", icon: FileText },
   { label: "Reports", href: "/dashboard/reports/sales", icon: FileText },
+  { label: "Settings", href: "/dashboard/settings", icon: Settings },
 ];
 
 // ── Lookup by role ─────────────────────────────────────
